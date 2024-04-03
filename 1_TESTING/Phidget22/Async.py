@@ -1,6 +1,6 @@
 import sys
 import ctypes
-from PhidgetSupport import PhidgetSupport
+from Phidget22.PhidgetSupport import PhidgetSupport
 
 class AsyncSupport:
 	__callbacks = {}
