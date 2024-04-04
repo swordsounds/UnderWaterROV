@@ -1,15 +1,12 @@
-import TestingFileGUI as gui
+# import TestingFileGUI as gui
+import TestingFileGraph as graph
 import TestingFileForControl as control_test
 import threading
 
-running = False
-
 def main():
-    global running
-    if not running:
-        running = True
-        threading.Thread(target=process).start()
-    gui.main()
+    threading.Thread(target=process).start()
+    # gui.main()
+    graph.main()
 
 def process():
     control_test.main()
