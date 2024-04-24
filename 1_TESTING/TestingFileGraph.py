@@ -48,7 +48,7 @@ def main():
                                   frames=range(1, 2), 
                                   fargs=(ys,), 
                                   cache_frame_data=False, interval=500, 
-                                  blit=True)
+                                  blit=False)
     plt.show()
     
 

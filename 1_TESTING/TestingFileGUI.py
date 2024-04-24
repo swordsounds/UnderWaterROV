@@ -33,35 +33,33 @@ def animate(i, ys):
     line.set_ydata(ys)
     return line,
 
-class App(customtkinter.CTk):
-    def __init__(self):
-        super().__init__()
 
-        customtkinter.set_appearance_mode("dark")
-        customtkinter.set_default_color_theme("dark-blue")
 
-        self.title("Testing File")
-        self.geometry("1080x540")
-        self.grid_columnconfigure(0, weight=1)
-        self.grid_rowconfigure(0, weight=1)
-
-        frame = customtkinter.CTkFrame(height=420, width=500, master=self)
-        frame.pack(pady=20, padx=60, fill="both", expand=True)
-        frame.grid(row=0, column=0, padx=20, pady=20)
-        
-        canvas = FigureCanvasTkAgg(fig, master=frame)
-        canvas.draw()
-        canvas.get_tk_widget().place(relx=0, rely=0)
-        
-        ani = animation.FuncAnimation(fig, animate, 
-                                    frames=range(1, 2), 
-                                    fargs=(ys,), 
-                                    cache_frame_data=False, interval=500, 
-                                    blit=True)
 
 def main():
-    app = App()
-    app.mainloop()
+    customtkinter.set_appearance_mode("dark")
+    customtkinter.set_default_color_theme("dark-blue")
 
+    root = customtkinter.CTk()
+    root.title("Testing File")
+    root.geometry("1080x540")
+    root.grid_columnconfigure(0, weight=1)
+    root.grid_rowconfigure(0, weight=1)
+
+    frame = customtkinter.CTkFrame(height=420, width=500, master=root)
+    frame.pack(pady=20, padx=60, fill="both", expand=True)
+    frame.grid(row=0, column=0, padx=20, pady=20)
+    
+    canvas = FigureCanvasTkAgg(fig, master=frame)
+    canvas.draw()
+    canvas.get_tk_widget().place(relx=0, rely=0)
+    
+    ani = animation.FuncAnimation(fig, animate, 
+                                frames=None, 
+                                fargs=(ys,), 
+                                cache_frame_data=False, interval=500, 
+                                blit=False)
+    root.mainloop()
+    
 if __name__ == "__main__":
     main()

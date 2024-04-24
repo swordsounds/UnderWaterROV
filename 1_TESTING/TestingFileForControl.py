@@ -3,6 +3,7 @@ from pynput.keyboard import Listener as KeyboardListener
 from pynput.mouse import Listener as MouseListener
 import TestingFileForMotors as mtr
 
+
 scroll_value = 100
 
 def on_press(key):
@@ -35,12 +36,10 @@ def on_scroll(x, y, dx, dy):
 
 
 def main():
-    with KeyboardListener(on_press=on_press, 
-                           on_release=on_release
-                           ) as listener:
-        with MouseListener(on_scroll=on_scroll) as listener:
-            listener.join()
-    listener.start()
+    listenerKeyboard = KeyboardListener(on_press=on_press, on_release=on_release)
+    listenerMouse = MouseListener(on_scroll=on_scroll)
+    listenerKeyboard.start()
+    listenerMouse.start()
 
 if __name__ == "__main__":
     main()
