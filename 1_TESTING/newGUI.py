@@ -25,13 +25,13 @@ def switch_event():
 
 def animate(i):
     data = pd.read_csv('data.csv')
-    x = data['x_value'][-30:]
-    y1 = data['total_1'][-30:]
-    y2 = data['total_2'][-30:]
-    y3 = data['total_3'][-30:]
-    y4 = data['total_4'][-30:]
-    y5 = data['total_5'][-30:]
-    y6 = data['total_6'][-30:]
+    x = data['x_value'][-5:]
+    y1 = data['total_1'][-5:]
+    y2 = data['total_2'][-5:]
+    y3 = data['total_3'][-5:]
+    y4 = data['total_4'][-5:]
+    y5 = data['total_5'][-5:]
+    y6 = data['total_6'][-5:]
 
     plt.cla()
 
@@ -61,8 +61,6 @@ def animate(i):
     axes[1,1].set_xlabel('Time (s)')
     axes[1,2].set_xlabel('Time (s)')
     # axes[1,3].set_xlabel('Time (s)')
-
-    axes[0,2].set_xticks(x, fontsize=1)
     
     axes[0, 0].plot(x, y1, label='Motor 1')
     axes[0, 1].plot(x, y2, label='Motor 2')

@@ -58,7 +58,7 @@ def main():
             total_7 = random.randint(-6, 8)
             total_8 = random.randint(-5, 6)
 
-        time.sleep(0.25)
+        time.sleep(1)
     
 if __name__ == '__main__':
     main()
