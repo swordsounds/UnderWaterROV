@@ -1,5 +1,5 @@
 from multiprocessing import Process
-import newGraph as graph 
+import newGUI as graph 
 import dataGen as data
 
 def process():
