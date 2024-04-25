@@ -104,7 +104,17 @@ def main():
     tab_2 = tabview.add("tab 2")
 
     switch_var = customtkinter.StringVar(value='on')
-    switch = customtkinter.CTkSwitch(tab_1, text='placeholder', command='switch_event', 
+    switch = customtkinter.CTkSwitch(tab_1, text='View Full Dur.', command='switch_event', 
+                                    variable=switch_var, onvalue='off', offvalue='on')
+    switch.pack(padx=20, pady=20)
+
+    switch_var = customtkinter.StringVar(value='on')
+    switch = customtkinter.CTkSwitch(tab_1, text='View Full Dur.', command='switch_event', 
+                                    variable=switch_var, onvalue='off', offvalue='on')
+    switch.pack(padx=20, pady=20)
+    
+    switch_var = customtkinter.StringVar(value='on')
+    switch = customtkinter.CTkSwitch(tab_1, text='View Full Dur.', command='switch_event', 
                                     variable=switch_var, onvalue='off', offvalue='on')
     switch.pack(padx=20, pady=20)
     
