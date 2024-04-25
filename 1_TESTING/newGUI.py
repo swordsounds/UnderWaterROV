@@ -3,7 +3,6 @@ import tkinter as tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
-import matplotlib.transforms as mtransforms
 import pandas as pd
 import newGraph as graph
 
@@ -25,13 +24,13 @@ def switch_event():
 
 def animate(i):
     data = pd.read_csv('data.csv')
-    x = data['x_value'][-5:]
-    y1 = data['total_1'][-5:]
-    y2 = data['total_2'][-5:]
-    y3 = data['total_3'][-5:]
-    y4 = data['total_4'][-5:]
-    y5 = data['total_5'][-5:]
-    y6 = data['total_6'][-5:]
+    x = data['x_value'][-3:]
+    y1 = data['total_1'][-3:]
+    y2 = data['total_2'][-3:]
+    y3 = data['total_3'][-3:]
+    y4 = data['total_4'][-3:]
+    y5 = data['total_5'][-3:]
+    y6 = data['total_6'][-3:]
 
     plt.cla()
 
