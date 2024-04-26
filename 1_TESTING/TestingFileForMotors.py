@@ -1,6 +1,7 @@
 from Phidget22.Phidget import *
 from Phidget22.Devices.DCMotor import *
 from Phidget22.Devices.CurrentInput import *
+import time
 
 dcMotor0 = DCMotor()
 dcMotor1 = DCMotor()
@@ -8,7 +9,7 @@ dcMotor2 = DCMotor()
 dcMotor3 = DCMotor()
 dcMotor4 = DCMotor()
 dcMotor5 = DCMotor()
-
+#---CHANGE THE SERIAL NUMBERS BETWEEN COMMENTS----
 dcMotor0.setDeviceSerialNumber(487701)
 dcMotor0.setChannel(0)
 dcMotor1.setDeviceSerialNumber(487701)
@@ -23,7 +24,7 @@ dcMotor4.setDeviceSerialNumber(487701)
 dcMotor4.setChannel(0)
 dcMotor5.setDeviceSerialNumber(487701)
 dcMotor5.setChannel(1)
-
+#-----------------------------------
 currentInput0 = CurrentInput()
 currentInput1 = CurrentInput()
 
@@ -100,3 +101,12 @@ def motor_five_close():
 
 def motor_six_close():
 	dcMotor5.close()
+
+if __name__ == "__main__":
+	motor_one(1)
+	motor_two()
+	motor_three()
+	motor_four()
+	motor_five()
+	motor_six()
+	time.sleep(5)
