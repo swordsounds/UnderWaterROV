@@ -15,8 +15,16 @@ plt.rcParams['lines.color'] = '(0, 0, 0.78, 1)'
 plt.rcParams['axes.labelcolor'] = 'white'
 plt.rcParams["toolbar"] = "None"
 
+params = {
+        #   'figure.figsize': (15, 5),
+         'lines.linewidth': '2',
+         'axes.labelsize': 'x-large',
+         'axes.titlesize':'x-large',
+         'xtick.labelsize':'5',
+         'ytick.labelsize':'5'}
+plt.rcParams.update(params)
 
-fig, axes = plt.subplots(figsize=(14, 8), nrows=2, ncols=3)
+fig, axes = plt.subplots(figsize=(10, 7), nrows=2, ncols=3)
 fig.set_facecolor((0.167,0.173,0.178,1))
 
 def switch_event():
@@ -24,13 +32,13 @@ def switch_event():
 
 def animate(i):
     data = pd.read_csv('data.csv')
-    x = data['x_value'][-3:]
-    y1 = data['total_1'][-3:]
-    y2 = data['total_2'][-3:]
-    y3 = data['total_3'][-3:]
-    y4 = data['total_4'][-3:]
-    y5 = data['total_5'][-3:]
-    y6 = data['total_6'][-3:]
+    x = data['x_value'][-10:]
+    y1 = data['total_1'][-10:]
+    y2 = data['total_2'][-10:]
+    y3 = data['total_3'][-10:]
+    y4 = data['total_4'][-10:]
+    y5 = data['total_5'][-10:]
+    y6 = data['total_6'][-10:]
 
     plt.cla()
 
