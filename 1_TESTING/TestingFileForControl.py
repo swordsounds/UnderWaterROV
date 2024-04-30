@@ -9,9 +9,19 @@ scroll_value = 100
 def on_press(key):
     try:
         if key.char == 'w':
-            mtr.motor_one(throttle=None)
+             mtr.motor_four(throttle=scroll_value)
         elif key.char == 's':
-            mtr.motor_two()
+            mtr.motor_two(throttle=scroll_value)
+        elif key.char == 'a':
+            mtr.motor_one(throttle=scroll_value)
+            mtr.motor_three(throttle=scroll_value)
+            mtr.motor_five(throttle=scroll_value)
+            mtr.motor_six(throttle=scroll_value)
+        elif key.char == 'd':
+            mtr.motor_one(throttle=-scroll_value)
+            mtr.motor_three(throttle=-scroll_value)
+            mtr.motor_five(throttle=-scroll_value)
+            mtr.motor_six(throttle=-scroll_value)
     except Exception as e:
         print(f"Raised exception:{e}")
 
@@ -22,6 +32,16 @@ def on_release(key):
         mtr.motor_two_close()
     elif key == keyboard.Key.esc:
         return False
+    elif key.char == 'a':
+        mtr.motor_three_close()
+        mtr.motor_four_close()
+        mtr.motor_five_close()
+        mtr.motor_six_close()
+    elif key.char == 'd':
+        mtr.motor_three_close()
+        mtr.motor_four_close()
+        mtr.motor_five_close()
+        mtr.motor_six_close()
     
 def on_scroll(x, y, dx, dy):
     global scroll_value

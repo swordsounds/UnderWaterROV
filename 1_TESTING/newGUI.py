@@ -7,21 +7,21 @@ import pandas as pd
 import numpy as np
 
 plt.style.use('fivethirtyeight')
-plt.rcParams['axes.facecolor'] = '(0.34,0.34,0.34,1)'
-plt.rcParams['axes.edgecolor'] = '(0.167,0.173,0.178,1)'
-plt.rcParams['xtick.color'] = 'white'
-plt.rcParams['ytick.color'] = 'white'
-plt.rcParams['lines.color'] = '(0, 0, 0.78, 1)'
-plt.rcParams['axes.labelcolor'] = 'white'
-plt.rcParams["toolbar"] = "None"
 
 params = {
-        #   'figure.figsize': (15, 5),
+         'lines.color': '(0, 0, 0.78, 1)',
+         'ytick.color': 'white',
+         'xtick.color': 'white',
+         'axes.labelcolor': 'white',
+         'axes.edgecolor': '(0.167,0.173,0.178,1)',
+         'axes.facecolor': '(0.34,0.34,0.34,1)',
          'lines.linewidth': '2',
          'axes.labelsize': 'x-large',
          'axes.titlesize':'x-large',
          'xtick.labelsize':'4',
-         'ytick.labelsize':'4'}
+         'ytick.labelsize':'4',
+         'toolbar':  'None'
+         }
 plt.rcParams.update(params)
 
 fig, axes = plt.subplots(figsize=(14, 7), nrows=2, ncols=4)
@@ -56,7 +56,7 @@ def animate(i):
     
 
     axes[0,3].set_xticks(x_ticks)
-    axes[1,3]
+    axes[1,3].set_xticks(x_ticks)
 
     axes[0,0].set_ylabel('Current (a)')
     axes[0,1].set_ylabel('Current (a)')
@@ -99,20 +99,50 @@ def main():
     root.grid_columnconfigure(0, weight=1)
     root.grid_rowconfigure(0, weight=1)
 
-    # frame_tabview = customtkinter.CTkFrame(master=root)
-    # frame_tabview.pack(pady=20, padx=60, fill="both", expand=True)
-    # frame_tabview.grid(row=0, column=0, padx=20, pady=20)
-
     tabview = customtkinter.CTkTabview(height=968, width=1870, master=root)
     tabview.pack(padx=20, pady=20)
 
     tab_1 = tabview.add("Live Graphs")
     tab_2 = tabview.add("Options")
 
+    frame_tabview = customtkinter.CTkFrame(master=tab_2)
+    frame_tabview.pack(pady=20, padx=20)
+    frame_tabview.grid_rowconfigure(0, weight=1)
+    frame_tabview.grid_columnconfigure(0, weight=1)
+
+    slider_main_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=None)
+    slider_main_throttle.configure(number_of_steps=25)
+    slider_main_throttle.grid(row=0, column=0, padx=20, pady=20)
+
+    slider_one_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=None)
+    slider_one_throttle.configure(number_of_steps=25)
+    slider_one_throttle.grid(row=0, column=1, padx=20, pady=20)
+
+    slider_two_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=None)
+    slider_two_throttle.configure(number_of_steps=25)
+    slider_two_throttle.grid(row=0, column=2, padx=20, pady=20)
+
+    slider_three_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=None)
+    slider_three_throttle.configure(number_of_steps=25)
+    slider_three_throttle.grid(row=0, column=3, padx=20, pady=20)
+
+    slider_four_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=None)
+    slider_four_throttle.configure(number_of_steps=25)
+    slider_four_throttle.grid(row=0, column=4, padx=20, pady=20)
+
+    slider_five_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=None)
+    slider_five_throttle.configure(number_of_steps=25)
+    slider_five_throttle.grid(row=0, column=5, padx=20, pady=20)
+
+    slider_six_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=None)
+    slider_six_throttle.configure(number_of_steps=25)
+    slider_six_throttle.grid(row=0, column=6, padx=20, pady=20)
+
     canvas = FigureCanvasTkAgg(fig, master=tab_1)
     ani = FuncAnimation(plt.gcf(), animate, interval=1000, cache_frame_data=False)
     canvas.draw()
     canvas.get_tk_widget().place(relx=0.025, rely=0.025)
+
     
     root.mainloop()
     
