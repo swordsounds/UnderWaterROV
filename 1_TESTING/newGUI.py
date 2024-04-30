@@ -124,7 +124,7 @@ def main():
     frame_tabview.pack(pady=20, padx=20)
     frame_tabview.grid_rowconfigure(0, weight=1)
     frame_tabview.grid_columnconfigure(0, weight=1)
-
+    
     sldr_mn_thr = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=thr_main)
     sldr_mn_thr.configure(number_of_steps=25)
     sldr_mn_thr.grid(row=0, column=0, padx=40, pady=20)
@@ -198,3 +198,4 @@ def main():
     
 if __name__ == "__main__":
     main()
+
