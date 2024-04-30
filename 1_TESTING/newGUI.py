@@ -87,8 +87,22 @@ def animate(i):
 
     plt.xticks(rotation=45)
     plt.tight_layout()
-
+def thr_main(value):
+    slider_main_label.configure(text=value)
+def thr_one(value):
+    slider_one_label.configure(text=value)
+def thr_two(value):
+    slider_two_label.configure(text=value)
+def thr_three(value):
+    slider_three_label.configure(text=value)
+def thr_four(value):
+    slider_four_label.configure(text=value)
+def thr_five(value):
+    slider_five_label.configure(text=value)
+def thr_six(value):
+    slider_six_label.configure(text=value)
 def main():
+    global slider_main_label, slider_one_label, slider_two_label, slider_three_label, slider_four_label, slider_five_label, slider_six_label
     customtkinter.set_appearance_mode("dark")
     customtkinter.set_default_color_theme("dark-blue")
 
@@ -110,33 +124,55 @@ def main():
     frame_tabview.grid_rowconfigure(0, weight=1)
     frame_tabview.grid_columnconfigure(0, weight=1)
 
-    slider_main_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=None)
+    slider_main_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=thr_main)
     slider_main_throttle.configure(number_of_steps=25)
     slider_main_throttle.grid(row=0, column=0, padx=20, pady=20)
 
-    slider_one_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=None)
+    slider_main_label = customtkinter.CTkLabel(frame_tabview, text='', font=('Helvetica', 18))
+    slider_main_label.grid(row=1, column=0, padx=20, pady=20)
+
+    
+    slider_one_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=thr_one)
     slider_one_throttle.configure(number_of_steps=25)
     slider_one_throttle.grid(row=0, column=1, padx=20, pady=20)
 
-    slider_two_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=None)
+    slider_one_label = customtkinter.CTkLabel(frame_tabview, text='', font=('Helvetica', 18))
+    slider_one_label.grid(row=1, column=1, padx=20, pady=20)
+
+    slider_two_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=thr_two)
     slider_two_throttle.configure(number_of_steps=25)
     slider_two_throttle.grid(row=0, column=2, padx=20, pady=20)
 
-    slider_three_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=None)
+    slider_two_label = customtkinter.CTkLabel(frame_tabview, text='', font=('Helvetica', 18))
+    slider_two_label.grid(row=1, column=2, padx=20, pady=20)
+
+    slider_three_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=thr_three)
     slider_three_throttle.configure(number_of_steps=25)
     slider_three_throttle.grid(row=0, column=3, padx=20, pady=20)
 
-    slider_four_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=None)
+    slider_three_label = customtkinter.CTkLabel(frame_tabview, text='', font=('Helvetica', 18))
+    slider_three_label.grid(row=1, column=3, padx=20, pady=20)
+
+    slider_four_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=thr_four)
     slider_four_throttle.configure(number_of_steps=25)
     slider_four_throttle.grid(row=0, column=4, padx=20, pady=20)
 
-    slider_five_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=None)
+    slider_four_label = customtkinter.CTkLabel(frame_tabview, text='', font=('Helvetica', 18))
+    slider_four_label.grid(row=1, column=4, padx=20, pady=20)
+
+    slider_five_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=thr_five)
     slider_five_throttle.configure(number_of_steps=25)
     slider_five_throttle.grid(row=0, column=5, padx=20, pady=20)
 
-    slider_six_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=None)
+    slider_five_label = customtkinter.CTkLabel(frame_tabview, text='', font=('Helvetica', 18))
+    slider_five_label.grid(row=1, column=5, padx=20, pady=20)
+
+    slider_six_throttle = customtkinter.CTkSlider(frame_tabview, orientation="vertical", from_=0, to= 100, command=thr_six)
     slider_six_throttle.configure(number_of_steps=25)
     slider_six_throttle.grid(row=0, column=6, padx=20, pady=20)
+
+    slider_six_label = customtkinter.CTkLabel(frame_tabview, text='', font=('Helvetica', 18))
+    slider_six_label.grid(row=1, column=6, padx=20, pady=20)
 
     canvas = FigureCanvasTkAgg(fig, master=tab_1)
     ani = FuncAnimation(plt.gcf(), animate, interval=1000, cache_frame_data=False)
