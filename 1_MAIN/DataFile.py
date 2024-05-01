@@ -2,7 +2,8 @@ import csv
 import random
 import time
 from datetime import datetime
-import MotorsFile as mtr
+# import MotorsFile as mtr
+import provingGrounds as pv
 from Phidget22.Phidget import *
 from Phidget22.Devices.CurrentInput import *
 
@@ -54,7 +55,8 @@ def main():
             csv_writer.writerow(info)
 
             time_now = current_time
-            mtr_1 = mtr.onCurrentChange0(self=None, current=None)
+            pv.main()
+            mtr_1 = pv.onCurrentChange0(self=pv.onCurrentChange0, current=pv.current)
             # mtr_2 = mtr.getCurrentChange0()
             # mtr_3 = mtr.getCurrentChange0()
             # mtr_4 = mtr.getCurrentChange0()
