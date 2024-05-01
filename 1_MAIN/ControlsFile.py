@@ -10,7 +10,9 @@ def on_press(key):
     try:
         if key.char == 'w':
              mtr.motor_one(throttle=1)
+             mtr.motor_two(throttle=1)
         elif key.char == 's':
+            mtr.motor_one(throttle=-1)
             mtr.motor_two(throttle=-1)
         # elif key.char == 'a':
         #     mtr.motor_one(throttle=1)
@@ -28,7 +30,9 @@ def on_press(key):
 def on_release(key):
     if key.char == 'w':
         mtr.motor_one_close()
+        mtr.motor_two_close()
     elif key.char == 's':
+        mtr.motor_one_close()
         mtr.motor_two_close()
     elif key == keyboard.Key.esc:
         return False

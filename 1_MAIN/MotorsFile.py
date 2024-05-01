@@ -2,6 +2,12 @@ from Phidget22.Phidget import *
 from Phidget22.Devices.DCMotor import *
 from Phidget22.Devices.CurrentInput import *
 import time
+import csv
+from datetime import datetime
+
+now = datetime.now()
+
+current_time = now.strftime("%H:%M:%S") 
 
 dcMotor0 = DCMotor()
 dcMotor1 = DCMotor()
@@ -58,36 +64,27 @@ currentInput1.setChannel(1)
 # dcMotor3.open()
 # dcMotor4.open()
 # dcMotor5.open()
-value0 = 0 
-value1 = 0
-value2 = 0
-value3 = 0
-value4 = 0
-value5 = 0
 
-def onCurrentChange0(self, current):
-	value0 = round(float(current), 2)
+# fieldnames = ['time_now', 'mtr_1', 'mtr_2', 'mtr_3', 'mtr_4', 'mtr_5', 'mtr_6', 'temp', 'dept']
+# with open('data.csv', 'w') as csv_file:
+#         csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+#         csv_writer.writeheader()
+
+
+# def getCurrentChange0():
+# 	with open('data.csv', 'a') as csv_file:
+# 		csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+# 		info = {
+# 			'time_now': current_time,
+# 			'mtr_1': value0
+# 			}
+# 		csv_writer.writerow(info)
+
+def onCurrentChange0():
+	global value0
+	currentInput0.openWaitForAttachment(1000)
+	value0 = round(float(currentInput0.getCurrent()), 2)
 	return value0
-
-def onCurrentChange1(self, current):
-	value1 = round(float(current), 2)
-	return value1
-
-def onCurrentChange2(self, current):
-	value2 = round(float(current), 2)
-	return value2
-
-def onCurrentChange3(self, current):
-	value3 = round(float(current), 2)
-	return value3
-
-def onCurrentChange4(self, current):
-	value4 = round(float(current), 2)
-	return value4	
-
-def onCurrentChange5(self, current):
-	value5 = round(float(current), 2)
-	return value5
 
 def motor_one(throttle):
 	if throttle == None:
@@ -96,9 +93,7 @@ def motor_one(throttle):
 	dcMotor0.setAcceleration(19.4)
 	dcMotor0.setTargetVelocity(throttle)
 
-	currentInput0.openWaitForAttachment(5000)
-	# currentInput0.setDataInterval(1000)
-	currentInput0.setOnCurrentChangeHandler(onCurrentChange0)
+	
 
 
 def motor_two(throttle):
@@ -108,9 +103,7 @@ def motor_two(throttle):
 	dcMotor1.setAcceleration(19.4)
 	dcMotor1.setTargetVelocity(1)
 
-	currentInput1.openWaitForAttachment(5000)
-	currentInput1.setOnCurrentChangeHandler(onCurrentChange1)
-	# currentInput1.setDataInterval(1000)
+	currentInput1.openWaitForAttachment(1000)
 
 # def motor_three(throttle):
 # 	if throttle == None:
