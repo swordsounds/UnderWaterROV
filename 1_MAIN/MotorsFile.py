@@ -16,54 +16,54 @@ dcMotor3 = DCMotor()
 dcMotor4 = DCMotor()
 dcMotor5 = DCMotor()
 #---CHANGE THE SERIAL NUMBERS BETWEEN COMMENTS----
-# dcMotor0.setDeviceSerialNumber(487701)
-# dcMotor0.setChannel(0)
-# dcMotor1.setDeviceSerialNumber(487701)
-# dcMotor1.setChannel(1)
-dcMotor0.setDeviceSerialNumber(487777)
+dcMotor0.setDeviceSerialNumber(487701)
 dcMotor0.setChannel(0)
-dcMotor1.setDeviceSerialNumber(487777)
+dcMotor1.setDeviceSerialNumber(487701)
 dcMotor1.setChannel(1)
+# dcMotor0.setDeviceSerialNumber(487777)
+# dcMotor0.setChannel(0)
+# dcMotor1.setDeviceSerialNumber(487777)
+# dcMotor1.setChannel(1)
 
-# dcMotor2.setDeviceSerialNumber(487901)
-# dcMotor2.setChannel(0)
-# dcMotor3.setDeviceSerialNumber(487901)
-# dcMotor3.setChannel(1)
+dcMotor2.setDeviceSerialNumber(487901)
+dcMotor2.setChannel(0)
+dcMotor3.setDeviceSerialNumber(487901)
+dcMotor3.setChannel(1)
 
-# dcMotor4.setDeviceSerialNumber(487794)
-# dcMotor4.setChannel(0)
-# dcMotor5.setDeviceSerialNumber(487794)
-# dcMotor5.setChannel(1)
+dcMotor4.setDeviceSerialNumber(487794)
+dcMotor4.setChannel(0)
+dcMotor5.setDeviceSerialNumber(487794)
+dcMotor5.setChannel(1)
 #-----------------------------------
 currentInput0 = CurrentInput()
 currentInput1 = CurrentInput()
-# currentInput2 = CurrentInput()
-# currentInput3 = CurrentInput()
-# currentInput4 = CurrentInput()
-# currentInput5 = CurrentInput()
-# currentInput6 = CurrentInput()
+currentInput2 = CurrentInput()
+currentInput3 = CurrentInput()
+currentInput4 = CurrentInput()
+currentInput5 = CurrentInput()
+currentInput6 = CurrentInput()
 
 currentInput0.setDeviceSerialNumber(487777)
 currentInput0.setChannel(0)
 currentInput1.setDeviceSerialNumber(487777)
 currentInput1.setChannel(1)
 
-# currentInput2.setDeviceSerialNumber(487901)
-# currentInput2.setChannel(0)
-# currentInput3.setDeviceSerialNumber(487901)
-# currentInput3.setChannel(1)
+currentInput2.setDeviceSerialNumber(487901)
+currentInput2.setChannel(0)
+currentInput3.setDeviceSerialNumber(487901)
+currentInput3.setChannel(1)
 
-# currentInput4.setDeviceSerialNumber(487794)
-# currentInput4.setChannel(0)
-# currentInput5.setDeviceSerialNumber(487794)
-# currentInput5.setChannel(1)
+currentInput4.setDeviceSerialNumber(487794)
+currentInput4.setChannel(0)
+currentInput5.setDeviceSerialNumber(487794)
+currentInput5.setChannel(1)
 
-# dcMotor0.open()
-# dcMotor1.open()
-# dcMotor2.open()
-# dcMotor3.open()
-# dcMotor4.open()
-# dcMotor5.open()
+dcMotor0.open()
+dcMotor1.open()
+dcMotor2.open()
+dcMotor3.open()
+dcMotor4.open()
+dcMotor5.open()
 
 # fieldnames = ['time_now', 'mtr_1', 'mtr_2', 'mtr_3', 'mtr_4', 'mtr_5', 'mtr_6', 'temp', 'dept']
 # with open('data.csv', 'w') as csv_file:
@@ -80,10 +80,10 @@ currentInput1.setChannel(1)
 # 			}
 # 		csv_writer.writerow(info)
 
-def onCurrentChange0():
+def onCurrentChange0(self, current):
 	global value0
 	currentInput0.openWaitForAttachment(1000)
-	value0 = round(float(currentInput0.getCurrent()), 2)
+	value0 = round(float(current), 2)
 	return value0
 
 def motor_one(throttle):
@@ -92,7 +92,8 @@ def motor_one(throttle):
 	dcMotor0.openWaitForAttachment(5000)
 	dcMotor0.setAcceleration(19.4)
 	dcMotor0.setTargetVelocity(throttle)
-
+	currentInput0.openWaitForAttachment(1000)
+	currentInput0.setOnCurrentChangeHandler(onCurrentChange0)
 	
 
 
@@ -105,42 +106,42 @@ def motor_two(throttle):
 
 	currentInput1.openWaitForAttachment(1000)
 
-# def motor_three(throttle):
-# 	if throttle == None:
-# 		throttle = 1
-# 	dcMotor2.openWaitForAttachment(5000)
-# 	dcMotor2.setAcceleration(19.4)
-# 	dcMotor2.setTargetVelocity(1)
+def motor_three(throttle):
+	if throttle == None:
+		throttle = 1
+	dcMotor2.openWaitForAttachment(5000)
+	dcMotor2.setAcceleration(19.4)
+	dcMotor2.setTargetVelocity(1)
 
-# 	currentInput2.openWaitForAttachment(5000)
-# 	currentInput2.setOnCurrentChangeHandler(onCurrentChange2)
-# def motor_four(throttle):
-# 	if throttle == None:
-# 		throttle = 1
-# 	dcMotor3.openWaitForAttachment(5000)
-# 	dcMotor3.setAcceleration(19.4)
-# 	dcMotor3.setTargetVelocity(1)
+	currentInput2.openWaitForAttachment(5000)
+	# currentInput2.setOnCurrentChangeHandler(onCurrentChange2)
+def motor_four(throttle):
+	if throttle == None:
+		throttle = 1
+	dcMotor3.openWaitForAttachment(5000)
+	dcMotor3.setAcceleration(19.4)
+	dcMotor3.setTargetVelocity(1)
 
-# 	currentInput3.openWaitForAttachment(5000)
-# 	currentInput3.setOnCurrentChangeHandler(onCurrentChange3)
-# def motor_five(throttle):
-# 	if throttle == None:
-# 		throttle = 1
-# 	dcMotor4.openWaitForAttachment(5000)
-# 	dcMotor4.setAcceleration(19.4)
-# 	dcMotor4.setTargetVelocity(1)
+	currentInput3.openWaitForAttachment(5000)
+	# currentInput3.setOnCurrentChangeHandler(onCurrentChange3)
+def motor_five(throttle):
+	if throttle == None:
+		throttle = 1
+	dcMotor4.openWaitForAttachment(5000)
+	dcMotor4.setAcceleration(19.4)
+	dcMotor4.setTargetVelocity(1)
 
-# 	currentInput4.openWaitForAttachment(5000)
-# 	currentInput4.setOnCurrentChangeHandler(onCurrentChange4)
-# def motor_six(throttle):
-# 	if throttle == None:
-# 		throttle = 1
-# 	dcMotor5.openWaitForAttachment(5000)
-# 	dcMotor5.setAcceleration(19.4)
-# 	dcMotor5.setTargetVelocity(1)
+	currentInput4.openWaitForAttachment(5000)
+	# currentInput4.setOnCurrentChangeHandler(onCurrentChange4)
+def motor_six(throttle):
+	if throttle == None:
+		throttle = 1
+	dcMotor5.openWaitForAttachment(5000)
+	dcMotor5.setAcceleration(19.4)
+	dcMotor5.setTargetVelocity(1)
 
-# 	currentInput5.openWaitForAttachment(5000)
-# 	currentInput5.setOnCurrentChangeHandler(onCurrentChange5)
+	currentInput5.openWaitForAttachment(5000)
+	# currentInput5.setOnCurrentChangeHandler(onCurrentChange5)
 
 def motor_one_close():
 	dcMotor0.close()

@@ -54,7 +54,7 @@ def main():
             csv_writer.writerow(info)
 
             time_now = current_time
-            mtr_1 = mtr.onCurrentChange0()
+            mtr_1 = mtr.onCurrentChange0(self=None, current=None)
             # mtr_2 = mtr.getCurrentChange0()
             # mtr_3 = mtr.getCurrentChange0()
             # mtr_4 = mtr.getCurrentChange0()
