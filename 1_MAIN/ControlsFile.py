@@ -8,10 +8,10 @@ scroll_value = 100
 
 def on_press(key):
     try:
-        if key.char == 'shift':
+        if key == keyboard.Key.shift:
              mtr.motor_four(throttle=1)
              mtr.motor_two(throttle=1)
-        elif key.char == 'ctrl':
+        elif key == keyboard.Key.ctrl:
             mtr.motor_four(throttle=-1)
             mtr.motor_two(throttle=-1)
         elif key.char == 'q':
@@ -44,11 +44,12 @@ def on_press(key):
         print(f"Raised exception:{e}")
 
 def on_release(key):
-    try:
-        if key.char == 'shift':
+    
+        if key == keyboard.Key.shift:
+            print(key)
             mtr.motor_four_close()
             mtr.motor_two_close()
-        elif key.char == 'ctrl':
+        elif key == keyboard.Key.ctrl_l:
             mtr.motor_four_close()
             mtr.motor_two_close()
         elif key.char == 'q':
@@ -79,8 +80,7 @@ def on_release(key):
             mtr.motor_six_close()
         elif key == keyboard.Key.esc:
             return False
-    except Exception as e:
-        print(e)
+    
     
 # def on_scroll(x, y, dx, dy):
 #     global scroll_value
@@ -97,7 +97,7 @@ def main():
     listenerKeyboard = KeyboardListener(on_press=on_press, on_release=on_release)
     # listenerMouse = MouseListener(on_scroll=on_scroll)
     listenerKeyboard.start()
-    # listenerKeyboard.join()
+    listenerKeyboard.join()
     # listenerMouse.start()
 
 if __name__ == "__main__":

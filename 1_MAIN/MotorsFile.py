@@ -85,16 +85,16 @@ def motor_one(throttle):
 def motor_two(throttle):
 	if throttle == None:
 		throttle = 1
-	dcMotor1.openWaitForAttachment(1000)
+	dcMotor1.openWaitForAttachment(5000)
 	dcMotor1.setAcceleration(19.4)
 	dcMotor1.setTargetVelocity(1)
 
-	currentInput1.openWaitForAttachment(1000)
+	# currentInput1.openWaitForAttachment(1000)
 
 def motor_three(throttle):
 	if throttle == None:
 		throttle = 1
-	dcMotor2.openWaitForAttachment(1000)
+	dcMotor2.openWaitForAttachment(5000)
 	dcMotor2.setAcceleration(19.4)
 	dcMotor2.setTargetVelocity(1)
 
@@ -103,16 +103,16 @@ def motor_three(throttle):
 def motor_four(throttle):
 	if throttle == None:
 		throttle = 1
-	dcMotor3.openWaitForAttachment(1000)
+	dcMotor3.openWaitForAttachment(5000)
 	dcMotor3.setAcceleration(19.4)
 	dcMotor3.setTargetVelocity(1)
 
-	currentInput3.openWaitForAttachment(1000)
+	# currentInput3.openWaitForAttachment(1000)
 	# currentInput3.setOnCurrentChangeHandler(onCurrentChange3)
 def motor_five(throttle):
 	if throttle == None:
 		throttle = 1
-	dcMotor4.openWaitForAttachment(1000)
+	dcMotor4.openWaitForAttachment(5000)
 	dcMotor4.setAcceleration(19.4)
 	dcMotor4.setTargetVelocity(1)
 
@@ -121,7 +121,7 @@ def motor_five(throttle):
 def motor_six(throttle):
 	if throttle == None:
 		throttle = 1
-	dcMotor5.openWaitForAttachment(1000)
+	dcMotor5.openWaitForAttachment(5000)
 	dcMotor5.setAcceleration(19.4)
 	dcMotor5.setTargetVelocity(1)
 
