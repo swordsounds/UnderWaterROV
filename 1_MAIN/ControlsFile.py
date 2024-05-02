@@ -97,7 +97,7 @@ def main():
     listenerKeyboard = KeyboardListener(on_press=on_press, on_release=on_release)
     # listenerMouse = MouseListener(on_scroll=on_scroll)
     listenerKeyboard.start()
-    listenerKeyboard.join()
+    # listenerKeyboard.join()
     # listenerMouse.start()
 
 if __name__ == "__main__":

@@ -65,21 +65,6 @@ dcMotor3.open()
 dcMotor4.open()
 dcMotor5.open()
 
-# fieldnames = ['time_now', 'mtr_1', 'mtr_2', 'mtr_3', 'mtr_4', 'mtr_5', 'mtr_6', 'temp', 'dept']
-# with open('data.csv', 'w') as csv_file:
-#         csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-#         csv_writer.writeheader()
-
-
-# def getCurrentChange0():
-# 	with open('data.csv', 'a') as csv_file:
-# 		csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-# 		info = {
-# 			'time_now': current_time,
-# 			'mtr_1': value0
-# 			}
-# 		csv_writer.writerow(info)
-
 def onCurrentChange0(self, current):
 	global value0
 	currentInput0.openWaitForAttachment(1000)
@@ -100,7 +85,7 @@ def motor_one(throttle):
 def motor_two(throttle):
 	if throttle == None:
 		throttle = 1
-	dcMotor1.openWaitForAttachment(5000)
+	dcMotor1.openWaitForAttachment(1000)
 	dcMotor1.setAcceleration(19.4)
 	dcMotor1.setTargetVelocity(1)
 
@@ -109,38 +94,38 @@ def motor_two(throttle):
 def motor_three(throttle):
 	if throttle == None:
 		throttle = 1
-	dcMotor2.openWaitForAttachment(5000)
+	dcMotor2.openWaitForAttachment(1000)
 	dcMotor2.setAcceleration(19.4)
 	dcMotor2.setTargetVelocity(1)
 
-	currentInput2.openWaitForAttachment(5000)
+	currentInput2.openWaitForAttachment(1000)
 	# currentInput2.setOnCurrentChangeHandler(onCurrentChange2)
 def motor_four(throttle):
 	if throttle == None:
 		throttle = 1
-	dcMotor3.openWaitForAttachment(5000)
+	dcMotor3.openWaitForAttachment(1000)
 	dcMotor3.setAcceleration(19.4)
 	dcMotor3.setTargetVelocity(1)
 
-	currentInput3.openWaitForAttachment(5000)
+	currentInput3.openWaitForAttachment(1000)
 	# currentInput3.setOnCurrentChangeHandler(onCurrentChange3)
 def motor_five(throttle):
 	if throttle == None:
 		throttle = 1
-	dcMotor4.openWaitForAttachment(5000)
+	dcMotor4.openWaitForAttachment(1000)
 	dcMotor4.setAcceleration(19.4)
 	dcMotor4.setTargetVelocity(1)
 
-	currentInput4.openWaitForAttachment(5000)
+	currentInput4.openWaitForAttachment(1000)
 	# currentInput4.setOnCurrentChangeHandler(onCurrentChange4)
 def motor_six(throttle):
 	if throttle == None:
 		throttle = 1
-	dcMotor5.openWaitForAttachment(5000)
+	dcMotor5.openWaitForAttachment(1000)
 	dcMotor5.setAcceleration(19.4)
 	dcMotor5.setTargetVelocity(1)
 
-	currentInput5.openWaitForAttachment(5000)
+	currentInput5.openWaitForAttachment(1000)
 	# currentInput5.setOnCurrentChangeHandler(onCurrentChange5)
 
 def motor_one_close():
@@ -149,17 +134,17 @@ def motor_one_close():
 def motor_two_close():
 	dcMotor1.close()
 
-# def motor_three_close():
-# 	dcMotor2.close()
+def motor_three_close():
+	dcMotor2.close()
 
-# def motor_four_close():
-# 	dcMotor3.close()
+def motor_four_close():
+	dcMotor3.close()
 
-# def motor_five_close():
-# 	dcMotor4.close()
+def motor_five_close():
+	dcMotor4.close()
 
-# def motor_six_close():
-# 	dcMotor5.close()
+def motor_six_close():
+	dcMotor5.close()
 
 if __name__ == "__main__":
 	# time.sleep(10)
