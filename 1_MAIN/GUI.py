@@ -32,17 +32,17 @@ def animate(i):
     # mtr_1,mtr_2,mtr_3,mtr_4,mtr_5,mtr_6,temp,dept
     data = pd.read_csv('data.csv')
     x_ticks = np.arange(0, 2, 10) #data['x_value'][-2:]
-    x_special = data['time_now']
-    x = data['time_now'][-10:]
-    y1 = data['mtr_1'][-10:]
-    y2 = data['mtr_2'][-10:]
-    y3 = data['mtr_3'][-10:]
-    y4 = data['mtr_4'][-10:]
-    y5 = data['mtr_5'][-10:]
-    y6 = data['mtr_6'][-10:]
+    x_special = data['time']
+    x = data['time'][-10:]
+    y1 = data['mtr1'][-10:]
+    y2 = data['mtr2'][-10:]
+    y3 = data['mtr3'][-10:]
+    y4 = data['mtr4'][-10:]
+    y5 = data['mtr5'][-10:]
+    y6 = data['mtr6'][-10:]
 
-    y7 = data['temp']
-    y8 = data['dept']
+    # y7 = data['temp']
+    # y8 = data['dept']
 
     plt.cla()
 
@@ -80,11 +80,11 @@ def animate(i):
     axes[0, 0].plot(x, y1, label='Motor 1')
     axes[0, 1].plot(x, y2, label='Motor 2')
     axes[0, 2].plot(x, y3, label='Motor 3')
-    axes[0, 3].plot(x_special, y8, label='Temperature')
+    # axes[0, 3].plot(x_special, y8, label='Temperature')
     axes[1, 0].plot(x, y4, label='Motor 4')
     axes[1, 1].plot(x, y5, label='Motor 5')
     axes[1, 2].plot(x, y6, label='Motor 6')
-    axes[1, 3].plot(x_special, y7, label='Depth')
+    # axes[1, 3].plot(x_special, y7, label='Depth')
 
     plt.xticks(rotation=45)
     plt.tight_layout()
