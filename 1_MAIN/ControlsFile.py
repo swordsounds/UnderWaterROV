@@ -54,14 +54,14 @@ def on_press(key):
             rc.servo1(180)
         elif key.char == 'g':
             rc.servo1(63)
-        elif key.char == '1':
-            angle = 180
-            rc.servo2(angle)
-            return angle
-        elif key.char == '2':
-            angle = 0
-            rc.servo2(0)
-            return angle
+        # elif key.char == '1':
+        #     angle = 180
+        #     rc.servo2(angle)
+        #     return angle
+        # elif key.char == '2':
+        #     angle = 0
+        #     rc.servo2(0)
+        #     return angle
     except Exception as e:
         print(f"Raised exception:{e}")
 
@@ -107,10 +107,10 @@ def on_release(key):
             rc.servo1_close()
         elif key.char == 'g':
             rc.servo1_close()
-        elif key.char == '1':
-            rc.servo2_close()
-        elif key.char == '2':
-            rc.servo2_close()
+        # elif key.char == '1':
+        #     rc.servo2_close()
+        # elif key.char == '2':
+        #     rc.servo2_close()
         elif key == keyboard.Key.esc:
             return False
     

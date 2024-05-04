@@ -21,9 +21,9 @@ dcMotor0.setChannel(0)
 dcMotor1.setDeviceSerialNumber(487701)
 dcMotor1.setChannel(1)
 
-dcMotor2.setDeviceSerialNumber(487901)
+dcMotor2.setDeviceSerialNumber(100376)
 dcMotor2.setChannel(0)
-dcMotor3.setDeviceSerialNumber(487901)
+dcMotor3.setDeviceSerialNumber(100376)
 dcMotor3.setChannel(1)
 
 dcMotor4.setDeviceSerialNumber(487794)
@@ -47,9 +47,9 @@ currentInput0.setChannel(0)
 currentInput1.setDeviceSerialNumber(487701)
 currentInput1.setChannel(1)
 
-currentInput2.setDeviceSerialNumber(487901)
+currentInput2.setDeviceSerialNumber(100376)
 currentInput2.setChannel(0)
-currentInput3.setDeviceSerialNumber(487901)
+currentInput3.setDeviceSerialNumber(100376)
 currentInput3.setChannel(1)
 
 currentInput4.setDeviceSerialNumber(487794)
@@ -57,17 +57,6 @@ currentInput4.setChannel(0)
 currentInput5.setDeviceSerialNumber(487794)
 currentInput5.setChannel(1)
 
-voltageInput0.setDeviceSerialNumber(107414)
-voltageInput0.setChannel(0)
-
-voltageRatioInput1.setDeviceSerialNumber(107414)
-voltageRatioInput1.setChannel(1)
-
-def onSensorChange(self, sensorValue, sensorUnit):
-    print(sensorValue, sensorUnit.symbol)
-
-def onVoltageChange(self, voltage):
-    print("Voltage [" + str(self.getChannel()) + "]: " + str(voltage * 3200))
 
 now = datetime.now()
 
@@ -80,6 +69,7 @@ data = {
   "mtr2": [0],
   "mtr3": [0],
   "mtr4": [0],
+
   "mtr5": [0],
   "mtr6": [0],
   "temp": [0],
@@ -87,6 +77,12 @@ data = {
 
 def Compiler():
 	df = pd.DataFrame(data)
+	currentInput0.openWaitForAttachment(1000)
+	currentInput1.openWaitForAttachment(1000)
+	currentInput2.openWaitForAttachment(1000)
+	currentInput3.openWaitForAttachment(1000)
+	currentInput4.openWaitForAttachment(1000)
+	currentInput5.openWaitForAttachment(1000)
 	data["time"].append(current_time)
 	data["mtr1"].append(currentInput0.getCurrent())
 	data["mtr2"].append(currentInput1.getCurrent())
@@ -94,7 +90,7 @@ def Compiler():
 	data["mtr4"].append(currentInput3.getCurrent())
 	data["mtr5"].append(currentInput4.getCurrent())
 	data["mtr6"].append(currentInput5.getCurrent())
-	data["temp"].append(voltageInput0.getSensorValue())
+	data["temp"].append(0)
 	df.to_csv('data.csv', encoding='utf-8', index=False)
 
 
@@ -153,19 +149,8 @@ def motor_six(throttle):
 
 	# currentInput5.openWaitForAttachment(1000)
 	# currentInput5.setOnCurrentChangeHandler(onCurrentChange5)
-def sensors():
-    voltageInput0.setOnVoltageChangeHandler(onVoltageChange)
-    # voltageRatioInput1.setOnSensorChangeHandler(onSensorChange)
-
-    voltageInput0.openWaitForAttachment(5000)
-    voltageRatioInput1.openWaitForAttachment(5000)
-
-    voltageRatioInput1.setSensorType(VoltageRatioSensorType.SENSOR_TYPE_1124)
 
 
-def close():
-    voltageInput0.close()
-    # voltageInput1.close()
 
 
 def motor_one_close():
@@ -189,17 +174,17 @@ def motor_six_close():
 
 if __name__ == "__main__":
 	# time.sleep(10)
-	# motor_one(1)
-	# time.sleep(2)
-	# motor_two(1)
-	# time.sleep(2)
-	# motor_three(1)
-	# time.sleep(2)
-	# motor_four(1)
-	# time.sleep(2)
+	motor_one(1)
+	time.sleep(2)
+	motor_two(1)
+	time.sleep(2)
+	motor_three(1)
+	time.sleep(2)
+	motor_four(1)
+	time.sleep(2)
 	motor_five(1)
 	time.sleep(2)
-	# motor_six(1)
+	motor_six(1)
 	# time.sleep(60)
  
 
