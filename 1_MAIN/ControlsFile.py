@@ -15,39 +15,39 @@ def on_press(key):
     global angle
     try:
         if key == keyboard.Key.shift:
-             mtr.motor_four(throttle=1 * multiplier)
-             mtr.motor_two(throttle=1 * multiplier)
+            #  mtr.motor_four(throttle=1 * multiplier)
+             mtr.motor_three(throttle=-1 * multiplier)
         elif key.char == 'f':
-            mtr.motor_four(throttle=-1 * multiplier)
-            mtr.motor_two(throttle=-1 * multiplier)
+            mtr.motor_three(throttle=1 * multiplier)
+            # mtr.motor_two(throttle=-1 * multiplier)
         elif key.char == 'q':
             mtr.motor_five(throttle=1 * multiplier)
             mtr.motor_six(throttle=-1 * multiplier)
             mtr.motor_one(throttle=1 * multiplier)
-            mtr.motor_three(throttle=-1 * multiplier)
+            mtr.motor_four(throttle=-1 * multiplier)
         elif key.char == 'e':
             mtr.motor_five(throttle=-1 * multiplier)
             mtr.motor_six(throttle=1 * multiplier)
             mtr.motor_one(throttle=-1 * multiplier)
-            mtr.motor_three(throttle=1 * multiplier)
+            mtr.motor_four(throttle=1 * multiplier)
         elif key.char == 'w':
             mtr.motor_six(throttle=1 * multiplier)
             mtr.motor_five(throttle=1 * multiplier)
             mtr.motor_one(throttle=1 * multiplier)
-            mtr.motor_three(throttle=1 * multiplier)
+            mtr.motor_four(throttle=1 * multiplier)
         elif key.char == 's':
             mtr.motor_six(throttle=-1 * multiplier)
             mtr.motor_five(throttle=-1 * multiplier)
+            mtr.motor_one(throttle=-1 * multiplier)
+            mtr.motor_four(throttle=-1 * multiplier)
+        elif key.char == 'd':
             mtr.motor_one(throttle=1 * multiplier)
-            mtr.motor_three(throttle=1 * multiplier)
-        elif key.char == 'a':
-            mtr.motor_one(throttle=1 * multiplier)
-            mtr.motor_three(throttle=-1 * multiplier)
+            mtr.motor_four(throttle=-1 * multiplier)
             mtr.motor_five(throttle=-1 * multiplier)
             mtr.motor_six(throttle=1 * multiplier)
-        elif key.char == 'd':
+        elif key.char == 'a':
             mtr.motor_one(throttle=-1 * multiplier)
-            mtr.motor_three(throttle=1 * multiplier)
+            mtr.motor_four(throttle=1 * multiplier)
             mtr.motor_five(throttle=1 * multiplier)
             mtr.motor_six(throttle=-1 * multiplier)
         elif key.char == 'r':
@@ -68,39 +68,40 @@ def on_press(key):
 def on_release(key):
     
         if key == keyboard.Key.shift:
-            mtr.motor_four_close()
-            mtr.motor_two_close()
+            # mtr.motor_four_close()
+            mtr.motor_three_close()
+            # mtr.motor_two_close()
         elif key.char == 'f':
-            mtr.motor_four_close()
-            mtr.motor_two_close()
+            mtr.motor_three_close()
+            # mtr.motor_two_close()
         elif key.char == 'q':
             mtr.motor_five_close()
             mtr.motor_six_close()
             mtr.motor_one_close()
-            mtr.motor_three_close()
+            mtr.motor_four_close()
         elif key.char == 'e':
             mtr.motor_five_close()
             mtr.motor_six_close()
             mtr.motor_one_close()
-            mtr.motor_three_close()
+            mtr.motor_four_close()
         elif key.char == 'w':
             mtr.motor_five_close()
             mtr.motor_six_close()
             mtr.motor_one_close()
-            mtr.motor_three_close()
+            mtr.motor_four_close()
         elif key.char == 's':
             mtr.motor_five_close()
             mtr.motor_six_close()
             mtr.motor_one_close()
-            mtr.motor_three_close()
-        elif key.char == 'a':
-            mtr.motor_one_close()
-            mtr.motor_three_close()
-            mtr.motor_five_close()
-            mtr.motor_six_close()
+            mtr.motor_four_close()
         elif key.char == 'd':
             mtr.motor_one_close()
-            mtr.motor_three_close()
+            mtr.motor_four_close()
+            mtr.motor_five_close()
+            mtr.motor_six_close()
+        elif key.char == 'a':
+            mtr.motor_one_close()
+            mtr.motor_four_close()
             mtr.motor_five_close()
             mtr.motor_six_close()
         elif key.char == 'r':

@@ -77,12 +77,6 @@ data = {
 
 def Compiler():
 	df = pd.DataFrame(data)
-	currentInput0.openWaitForAttachment(1000)
-	currentInput1.openWaitForAttachment(1000)
-	currentInput2.openWaitForAttachment(1000)
-	currentInput3.openWaitForAttachment(1000)
-	currentInput4.openWaitForAttachment(1000)
-	currentInput5.openWaitForAttachment(1000)
 	data["time"].append(current_time)
 	data["mtr1"].append(currentInput0.getCurrent())
 	data["mtr2"].append(currentInput1.getCurrent())
@@ -129,8 +123,8 @@ def motor_four(throttle):
 	dcMotor3.setAcceleration(19.4)
 	dcMotor3.setTargetVelocity(throttle)
 
-	# currentInput3.openWaitForAttachment(1000)
-	# currentInput3.setOnCurrentChangeHandler(onCurrentChange3)
+	currentInput3.openWaitForAttachment(1000)
+
 def motor_five(throttle):
 	if throttle == None:
 		throttle = 1
@@ -175,17 +169,18 @@ def motor_six_close():
 if __name__ == "__main__":
 	# time.sleep(10)
 	motor_one(1)
-	time.sleep(2)
-	motor_two(1)
-	time.sleep(2)
-	motor_three(1)
-	time.sleep(2)
-	motor_four(1)
-	time.sleep(2)
-	motor_five(1)
-	time.sleep(2)
+	time.sleep(20)
+	# motor_two(1)
+	# time.sleep(2)
+	# motor_three(1)
+	# time.sleep(2)
+	# motor_four(1)
+	# time.sleep(2)
+	# motor_five(1)
+	# time.sleep(10)
+	# time.sleep(2)
 	motor_six(1)
-	# time.sleep(60)
+	time.sleep(5)
  
 
 
